@@ -1,16 +1,11 @@
-export const siteName =
-  process.env.NEXT_PUBLIC_SITE_NAME || "SEO Next.js Starter";
+export const siteName = process.env.NEXT_PUBLIC_SITE_NAME || "idea2app";
 
-export const title =
-  process.env.NEXT_PUBLIC_TITLE ||
-  "SEO Next.js Starter - A Starter Template for SEO Optimized Next.js Projects";
+export const title = process.env.NEXT_PUBLIC_TITLE || "idea2app";
 
-export const description =
-  process.env.NEXT_PUBLIC_DESCRIPTION ||
-  "A simple and easy-to-use starter template for building SEO optimized Next.js applications with best practices and performance in mind.";
+export const description = process.env.NEXT_PUBLIC_DESCRIPTION || "idea2app";
 
 // Last baseURL
-const defaultBaseURL = "https://seo-nextjs-starter.vercel.app";
+const defaultBaseURL = "";
 
 // Vercel baseURL, make sure it's a valid URL
 const VERCEL_URL =
@@ -19,7 +14,9 @@ const VERCEL_URL =
 
 // meta base url
 export const baseURL =
-  process.env.NEXT_PUBLIC_URL ||
-  VERCEL_URL ||
-  (globalThis.location && globalThis.location.origin) ||
-  defaultBaseURL;
+  process.env.NODE_ENV === "development"
+    ? "http://localhost:3000"
+    : process.env.NEXT_PUBLIC_URL ||
+      VERCEL_URL ||
+      (globalThis.location && globalThis.location.origin) ||
+      defaultBaseURL;

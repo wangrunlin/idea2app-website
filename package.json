@@ -1,6 +1,6 @@
 {
-  "name": "seo-nextjs-starter",
-  "version": "0.1.1",
+  "name": "idea2app-website",
+  "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
