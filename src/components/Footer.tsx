@@ -16,6 +16,24 @@ export default function Footer() {
         </Link>
         <Link
           className="hover:text-gray-900 dark:hover:text-gray-100"
+          href="/projects"
+        >
+          Projects
+        </Link>
+        <Link
+          className="hover:text-gray-900 dark:hover:text-gray-100"
+          href="/stuff"
+        >
+          Stuff
+        </Link>
+        <Link
+          className="hover:text-gray-900 dark:hover:text-gray-100"
+          href="/opensource"
+        >
+          Open Source
+        </Link>
+        <Link
+          className="hover:text-gray-900 dark:hover:text-gray-100"
           href="https://github.com/wangrunlin/seo-nextjs-starter"
           target="_blank"
           rel="noopener noreferrer"

@@ -20,3 +20,6 @@ export const baseURL =
       VERCEL_URL ||
       (globalThis.location && globalThis.location.origin) ||
       defaultBaseURL;
+
+export const nocodbUrl = process.env.NOCODB_URL || "";
+export const nocodbToken = process.env.NOCODB_TOKEN || "";
