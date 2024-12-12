@@ -20,6 +20,19 @@ export default async function OpenSourceList({
       next: { tags: [user] },
     }
   );
+
+  if (!response.ok) {
+    const errorData = await response.json();
+    if (
+      errorData.message &&
+      errorData.message.includes("API rate limit exceeded")
+    ) {
+      return <div>API 速率限制已超出，请稍后再试或使用身份验证请求。</div>;
+    }
+    // 处理其他错误
+    return <div>发生错误: {errorData.message}</div>;
+  }
+
   const openSourceProjects: OpenSourceProject[] = await response.json();
 
   let projectsToShow = openSourceProjects.sort((a, b) =>

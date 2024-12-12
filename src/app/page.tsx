@@ -1,4 +1,5 @@
 import OpenSourceList from "@/components/OpenSourceList";
+import PartnerList from "@/components/PartnerList";
 import ProjectList from "@/components/ProjectList";
 import TeamMember from "@/components/TeamMember";
 import { title, description } from "@/config";
@@ -33,7 +34,7 @@ export default function Home() {
 
       <section className="bg-gray-50 dark:bg-gray-800 rounded-lg p-6 shadow-sm">
         <h2 className="text-2xl font-bold text-center mb-6 text-gray-800 dark:text-white">
-          团队成员
+          菁英团队
         </h2>
         <TeamMember onlyFullTime={true} showSummary={false} />
         <div className="text-center mt-6">
@@ -63,6 +64,14 @@ export default function Home() {
             查看更多开源项目
           </Link>
         </div>
+      </section>
+
+      <section className="bg-gray-50 dark:bg-gray-800 rounded-lg p-6 shadow-sm">
+        <h2 className="text-2xl font-bold text-center mb-6 text-gray-800 dark:text-white">
+          合作伙伴
+        </h2>
+
+        <PartnerList />
       </section>
     </div>
   );

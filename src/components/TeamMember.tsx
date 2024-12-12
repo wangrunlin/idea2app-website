@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { getTableList } from "@/app/utils/api";
+import { getTableList } from "@/utils/api";
 
 type Stuff = {
   Id: string;
@@ -15,8 +15,12 @@ export default async function TeamMember({
   onlyFullTime = false,
   showSummary = true,
 }) {
+  if (!process.env.NEXT_PUBLIC_NOCODB_TEAM_TABLE) {
+    return null;
+  }
+
   const teamMembers = await getTableList<Stuff[]>(
-    process.env.NEXT_PUBLIC_NOCODB_TEAM_TABLE || ""
+    process.env.NEXT_PUBLIC_NOCODB_TEAM_TABLE
   );
 
   const sortedActiveMembers = teamMembers

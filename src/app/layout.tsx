@@ -2,8 +2,9 @@ import "@/app/globals.css";
 
 import type { Metadata } from "next";
 import { GoogleAnalytics } from "@next/third-parties/google";
-import Footer from "@/components/Footer";
 import { baseURL, description, siteName, title } from "@/config";
+import Footer from "@/components/Footer";
+import Header from "@/components/Header";
 
 export const metadata: Metadata = {
   title,
@@ -47,6 +48,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
+        <Header />
+
         <main>{children}</main>
 
         <Footer />

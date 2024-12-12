@@ -1,4 +1,4 @@
-import { getTableList } from "@/app/utils/api";
+import { getTableList } from "@/utils/api";
 
 type Project = {
   Id: number;
@@ -18,10 +18,12 @@ type Project = {
 };
 
 export default async function ProjectList({ displayCount = 0 }) {
+  if (!process.env.NEXT_PUBLIC_NOCODB_PROJECTS_TABLE) {
+    return null;
+  }
+
   const projects = (
-    await getTableList<Project[]>(
-      process.env.NEXT_PUBLIC_NOCODB_PROJECTS_TABLE || ""
-    )
+    await getTableList<Project[]>(process.env.NEXT_PUBLIC_NOCODB_PROJECTS_TABLE)
   )
     .filter(({ startDate }) => !!startDate)
     .filter(({ 定金收款日 }) => !!定金收款日);
