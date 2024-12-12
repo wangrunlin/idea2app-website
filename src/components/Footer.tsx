@@ -22,9 +22,9 @@ export default function Footer() {
         </Link>
         <Link
           className="hover:text-gray-900 dark:hover:text-gray-100"
-          href="/stuff"
+          href="/team"
         >
-          Stuff
+          Team
         </Link>
         <Link
           className="hover:text-gray-900 dark:hover:text-gray-100"

@@ -2,16 +2,19 @@ import { nocodbToken, nocodbUrl } from "@/config";
 
 export async function getTableList<T = { Id: string }>(
   table: string,
-  tags: string[] = ["nocodb"]
+  limit: number = 1000
 ): Promise<T> {
-  const response = await fetch(`${nocodbUrl}/api/v2/tables/${table}/records`, {
-    method: "GET",
-    headers: {
-      "xc-token": nocodbToken,
-      "Content-Type": "application/json",
-    },
-    next: { tags },
-  });
+  const response = await fetch(
+    `${nocodbUrl}/api/v2/tables/${table}/records?limit=${limit}`,
+    {
+      method: "GET",
+      headers: {
+        "xc-token": nocodbToken,
+        "Content-Type": "application/json",
+      },
+      next: { tags: [table] },
+    }
+  );
 
   if (!response.ok) {
     throw new Error("网络响应不是 OK");

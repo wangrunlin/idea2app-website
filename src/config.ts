@@ -1,8 +1,10 @@
 export const siteName = process.env.NEXT_PUBLIC_SITE_NAME || "idea2app";
 
-export const title = process.env.NEXT_PUBLIC_TITLE || "idea2app";
+export const title =
+  process.env.NEXT_PUBLIC_TITLE || "idea2app 全行业信息化转型专家";
 
-export const description = process.env.NEXT_PUBLIC_DESCRIPTION || "idea2app";
+export const description =
+  process.env.NEXT_PUBLIC_DESCRIPTION || "您的每个创意都值得用心实现";
 
 // Last baseURL
 const defaultBaseURL = "";
