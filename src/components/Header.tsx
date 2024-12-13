@@ -26,46 +26,41 @@ export default function Header() {
             </Link>
           </div>
           <div className="md:hidden flex items-center">
-            {isOpen ? (
-              <svg
-                onClick={() => setIsOpen(!isOpen)}
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6 cursor-pointer"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
+            <svg
+              onClick={() => setIsOpen(!isOpen)}
+              xmlns="http://www.w3.org/2000/svg"
+              className={`h-6 w-6 cursor-pointer transition-transform duration-300 ${
+                isOpen ? "rotate-90 scale-125" : "rotate-0 scale-100"
+              }`}
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              {isOpen ? (
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
                   strokeWidth={2}
                   d="M6 18L18 6M6 6l12 12"
                 />
-              </svg>
-            ) : (
-              <svg
-                onClick={() => setIsOpen(!isOpen)}
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6 cursor-pointer"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
+              ) : (
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
                   strokeWidth={2}
                   d="M4 6h16M4 12h16m-7 6h7"
                 />
-              </svg>
-            )}
+              )}
+            </svg>
           </div>
         </div>
 
         <nav
-          className={`md:flex w-full ${
-            isOpen ? "block" : "hidden"
-          } justify-end p-4`}
+          className={`md:flex md:max-h-screen md:opacity-100 w-full transition-all duration-200 ${
+            isOpen
+              ? "block max-h-screen opacity-100 p-4"
+              : "block max-h-0 opacity-0"
+          } overflow-hidden justify-end`}
         >
           <ul className="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-6">
             {links.map(({ name, href }) => (
