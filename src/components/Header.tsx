@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { links } from "@/components/Footer";
@@ -10,9 +10,21 @@ export default function Header() {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
 
+  useEffect(() => {
+    if (isOpen) {
+      document.body.classList.add("overflow-hidden");
+    } else {
+      document.body.classList.remove("overflow-hidden");
+    }
+  }, [isOpen]);
+
   return (
-    <header className="bg-gray-100 text-gray-800 dark:bg-gray-800 dark:text-gray-200">
-      <div className="container mx-auto flex flex-col md:flex-row justify-between items-center p-4">
+    <header
+      className={`bg-gray-100 text-gray-800 dark:bg-gray-800 dark:text-gray-200 ${
+        isOpen ? "fixed top-0 left-0 right-0 bottom-0 z-50" : ""
+      }`}
+    >
+      <div className="container mx-auto flex flex-col md:flex-row justify-between items-center p-4 h-full">
         <div className="flex justify-between items-center w-full">
           <div className="text-lg font-bold">
             <Link href="/">
@@ -56,13 +68,10 @@ export default function Header() {
         </div>
 
         <nav
-          className={`md:flex md:max-h-screen md:opacity-100 w-full transition-all duration-200 ${
-            isOpen
-              ? "block max-h-screen opacity-100 p-4"
-              : "block max-h-0 opacity-0"
-          } overflow-hidden justify-end`}
+          className={`md:flex md:opacity-100 md:bg-transparent w-full h-full transition-all duration-200 overflow-hidden justify-end
+             ${isOpen ? "block opacity-100 p-4" : "hidden opacity-0"}`}
         >
-          <ul className="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-6">
+          <ul className="flex flex-col md:flex-row space-y-12 md:space-y-0 md:space-x-6 h-full justify-center items-center">
             {links.map(({ name, href }) => (
               <li
                 key={href}
