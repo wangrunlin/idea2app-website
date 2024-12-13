@@ -22,30 +22,6 @@ export default function Footer() {
             {link.name}
           </Link>
         ))}
-        <Link
-          className="hover:text-gray-900 dark:hover:text-gray-100"
-          href="/about"
-        >
-          About
-        </Link>
-        <Link
-          className="hover:text-gray-900 dark:hover:text-gray-100"
-          href="/projects"
-        >
-          Projects
-        </Link>
-        <Link
-          className="hover:text-gray-900 dark:hover:text-gray-100"
-          href="/team"
-        >
-          Team
-        </Link>
-        <Link
-          className="hover:text-gray-900 dark:hover:text-gray-100"
-          href="/opensource"
-        >
-          Open Source
-        </Link>
       </div>
       <p className="mt-4 text-sm sm:text-base">
         &copy; {new Date().getFullYear()} {siteName}

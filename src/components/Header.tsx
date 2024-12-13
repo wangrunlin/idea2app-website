@@ -2,9 +2,12 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { links } from "./Footer";
+import Link from "next/link";
+import { links } from "@/components/Footer";
+import { usePathname } from "next/navigation";
 
 export default function Header() {
+  const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -12,13 +15,15 @@ export default function Header() {
       <div className="container mx-auto flex flex-col md:flex-row justify-between items-center p-4">
         <div className="flex justify-between items-center w-full">
           <div className="text-lg font-bold">
-            <Image
-              src="https://github.com/idea2app.png"
-              alt="Logo"
-              width={100}
-              height={100}
-              className="w-10 h-10"
-            />
+            <Link href="/">
+              <Image
+                src="https://github.com/idea2app.png"
+                alt="Logo"
+                width={100}
+                height={100}
+                className="w-10 h-10"
+              />
+            </Link>
           </div>
           <div className="md:hidden flex items-center">
             {isOpen ? (
@@ -67,15 +72,16 @@ export default function Header() {
               <li
                 key={href}
                 className={`transition-transform transform hover:scale-105 ${
-                  href === "/" ? "text-blue-500" : ""
+                  href === pathname ? "text-blue-500" : ""
                 } ${isOpen ? "py-2" : ""}`}
               >
-                <a
+                <Link
                   href={href}
                   className="hover:text-blue-500 dark:hover:text-blue-400 font-semibold"
+                  onClick={() => setIsOpen(false)}
                 >
                   {name}
-                </a>
+                </Link>
               </li>
             ))}
           </ul>

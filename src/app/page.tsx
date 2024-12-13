@@ -51,11 +51,40 @@ export default function Home() {
         <h2 className="text-2xl font-bold text-center mb-6 text-gray-800 dark:text-white">
           开源项目
         </h2>
-        <OpenSourceList
-          displayCount={6}
-          showDescription={false}
-          sortByStars={true}
-        />
+        <div>
+          <h3 className="text-xl font-bold mb-4 text-gray-800 dark:text-white text-center">
+            <a
+              className="hover:text-blue-600"
+              href="https://github.com/idea2app"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              idea2app
+            </a>
+          </h3>
+          <OpenSourceList
+            user="idea2app"
+            displayCount={6}
+            showDescription={false}
+            sortByStars={true}
+          />
+          <h3 className="text-xl font-bold mb-4 text-gray-800 dark:text-white text-center">
+            <a
+              className="hover:text-blue-600"
+              href="https://github.com/EasyWebApp"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              EasyWebApp
+            </a>
+          </h3>
+          <OpenSourceList
+            user="EasyWebApp"
+            displayCount={6}
+            showDescription={false}
+            sortByStars={true}
+          />
+        </div>
         <div className="text-center mt-6">
           <Link
             href="/opensource"
