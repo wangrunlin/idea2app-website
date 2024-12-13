@@ -1,4 +1,5 @@
 import { getTableList } from "@/utils/api";
+import Image from "next/image";
 
 type Partner = {
   Id: number;
@@ -48,7 +49,7 @@ export default async function PartnerList() {
 
   return (
     <ul className="flex flex-wrap gap-8 justify-center">
-      {partnersToShow.map(({ Id, address, name, image: [{ signedUrl }] }) => (
+      {partnersToShow.map(({ Id, address, name, image: [{ url }] }) => (
         <li
           key={Id}
           className="flex flex-col items-center transition-transform duration-300 transform hover:scale-105"
@@ -59,12 +60,17 @@ export default async function PartnerList() {
             rel="noopener noreferrer"
             className="group"
           >
-            {signedUrl && (
-              // eslint-disable-next-line @next/next/no-img-element
-              <img
-                className="h-16 object-cover grayscale transition duration-300 group-hover:grayscale-0"
-                src={signedUrl}
+            {url && (
+              <Image
+                className="w-full h-16 object-cover grayscale transition duration-300 group-hover:grayscale-0"
+                src={url.replace(
+                  "nocodb.4c0a56669c4be111f209c9151999e2e7.r2.cloudflarestorage.com",
+                  "r2nocodb.alin.run"
+                )}
                 alt={name}
+                quality={100}
+                height={64}
+                width={64}
               />
             )}
             <p className="mt-2 text-center text-sm font-medium">{name}</p>

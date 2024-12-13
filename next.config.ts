@@ -9,8 +9,7 @@ const nextConfig: NextConfig = {
       },
       {
         protocol: "https",
-        hostname:
-          "nocodb.4c0a56669c4be111f209c9151999e2e7.r2.cloudflarestorage.com",
+        hostname: "r2nocodb.alin.run",
       },
     ],
   },
